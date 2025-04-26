@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import ProfileMenu from "./ProfileMenu";
 
 const categories = [
   { name: "New Arrivals", href: "/category/new-arrivals" },
@@ -48,7 +48,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Search, Cart, and Account */}
+          {/* Search, Cart, Profile and Account */}
           <div className="flex items-center space-x-4">
             {/* Desktop Search */}
             <div className="hidden md:flex items-center relative">
@@ -75,10 +75,8 @@ export default function Header() {
               )}
             </Link>
 
-            {/* User Account */}
-            <Link to="/account" className="p-2 hidden md:block">
-              <User size={24} className="text-gray-700" />
-            </Link>
+            {/* Profile Menu */}
+            <ProfileMenu />
 
             {/* Mobile menu button */}
             <Sheet>
@@ -108,8 +106,7 @@ export default function Header() {
                   ))}
                   <div className="border-t border-gray-200 pt-4 mt-4">
                     <Link to="/account" className="flex items-center py-2">
-                      <User size={20} className="mr-2" />
-                      My Account
+                      <ProfileMenu />
                     </Link>
                   </div>
                 </nav>
